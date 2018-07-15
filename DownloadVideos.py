@@ -69,13 +69,26 @@ if os.path.exists(directory) == False:
 
 #test creds
 url = 'http://' + ip + ':' + str(port) + '/get_record_file.cgi?loginuse=' + username + '&loginpas=' + password;
-response = urllib2.urlopen(url);
+
+try:
+    response = urllib2.urlopen(url, timeout = 10);
+except urllib2.URLError as e:
+    print "Error - Failed to access URL";
+    sys.exit(5);
+except socket.timeout as e:
+    print "Error - Failed to access URL";
+    sys.exit(6);
+except:
+    print "Error - Is this IP a vstarcam camera?";
+    sys.exit(7)
+
+#return output
 output = response.read();
 
 #check if page returns creds failure
 if "Auth Failed" in output:
     print "Error - Invalid user credentials";
-    sys.exit(5);
+    sys.exit(6);
 
 lines = output.split('\n');
 
