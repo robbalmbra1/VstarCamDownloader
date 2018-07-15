@@ -6,8 +6,8 @@ Vstarcam's firmware has been recently updated so whenever the device has booted 
 
 # Program
 
-./DownloadVideos.py [IP ADDRESS] [PORT] [OUTPUT DIRECTORY]
+./DownloadVideos.py [IP] [PORT] [OUTPUT DIRECTORY] [USERNAME] [PASSWORD]
 
-e.g. ./DownloadVideos.py 192.168.0.15 80 /opt/videos/
+e.g. ./DownloadVideos.py 192.168.0.15 80 /opt/videos/ bob john123
 
 
