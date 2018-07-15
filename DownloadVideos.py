@@ -88,7 +88,7 @@ output = response.read();
 #check if page returns creds failure
 if "Auth Failed" in output:
     print "Error - Invalid user credentials";
-    sys.exit(6);
+    sys.exit(8);
 
 lines = output.split('\n');
 
